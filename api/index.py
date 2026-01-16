@@ -3,7 +3,7 @@ from pathlib import Path
 from urllib.parse import urlparse
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DOC_DIR = BASE_DIR / "doc"
+PUB_DIR = BASE_DIR / "public"
 
 
 def serve_file(handler, file_path: Path, content_type: str) -> None:
@@ -29,26 +29,26 @@ class handler(BaseHTTPRequestHandler):
         path = parsed.path
 
         if path == "/cv.pdf":
-            serve_file(self, DOC_DIR / "cv.pdf", "application/pdf")
+            serve_file(self, PUB_DIR / "cv.pdf", "application/pdf")
             return
         if path == "/portfolio.pdf":
-            serve_file(self, DOC_DIR / "portfolio.pdf", "application/pdf")
+            serve_file(self, PUB_DIR / "portfolio.pdf", "application/pdf")
             return
         if path == "/cert_scrum_master.pdf":
-            serve_file(self, DOC_DIR / "cert_scrum_master.pdf", "application/pdf")
+            serve_file(self, PUB_DIR / "cert_scrum_master.pdf", "application/pdf")
             return
         if path == "/ldr_cnrs.pdf":
-            serve_file(self, DOC_DIR / "ldr_cnrs.pdf", "application/pdf")
+            serve_file(self, PUB_DIR / "ldr_cnrs.pdf", "application/pdf")
             return
         if path == "/ldr_optimiz_network.pdf":
-            serve_file(self, DOC_DIR / "ldr_optimiz_network.pdf", "application/pdf")
+            serve_file(self, PUB_DIR / "ldr_optimiz_network.pdf", "application/pdf")
             return
         if path == "/profile-photo.png":
-            serve_file(self, DOC_DIR / "profile-photo.png", "image/png")
+            serve_file(self, PUB_DIR / "profile-photo.png", "image/png")
             return
 
         # Serve the main HTML page
-        serve_file(self, DOC_DIR / "index.html", "text/html; charset=utf-8")
+        serve_file(self, PUB_DIR / "index.html", "text/html; charset=utf-8")
 
     def log_message(self, format: str, *args) -> None:  # noqa: A003
         # Quieter logs in Vercel/runtime.
