@@ -43,6 +43,9 @@ class handler(BaseHTTPRequestHandler):
         if path == "/ldr_optimiz_network.pdf":
             serve_file(self, PUB_DIR / "ldr_optimiz_network.pdf", "application/pdf")
             return
+        if path == "/blog_loky.pdf":
+            serve_file(self, PUB_DIR / "blog_loky.pdf", "application/pdf")
+            return
         if path == "/profile-photo.png":
             serve_file(self, PUB_DIR / "profile-photo.png", "image/png")
             return
