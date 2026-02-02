@@ -49,6 +49,28 @@ class handler(BaseHTTPRequestHandler):
         if path == "/profile-photo.png":
             serve_file(self, PUB_DIR / "profile-photo.png", "image/png")
             return
+        
+        # Serve images from the images directory
+        if path.startswith("/images/"):
+            image_name = path.split("/images/")[-1]
+            image_path = PUB_DIR / "images" / image_name
+            
+            # Determine content type based on file extension
+            if image_name.endswith(".png"):
+                content_type = "image/png"
+            elif image_name.endswith(".jpg") or image_name.endswith(".jpeg"):
+                content_type = "image/jpeg"
+            elif image_name.endswith(".svg"):
+                content_type = "image/svg+xml"
+            elif image_name.endswith(".gif"):
+                content_type = "image/gif"
+            elif image_name.endswith(".webp"):
+                content_type = "image/webp"
+            else:
+                content_type = "application/octet-stream"
+            
+            serve_file(self, image_path, content_type)
+            return
 
         # Serve the main HTML page
         serve_file(self, PUB_DIR / "index.html", "text/html; charset=utf-8")
