@@ -83,7 +83,16 @@ class handler(BaseHTTPRequestHandler):
 def run_local(port: int = 8000) -> None:
     server_address = ("", port)
     httpd = HTTPServer(server_address, handler)
+    import webbrowser
+    from threading import Timer
+    
+    def open_browser():
+        webbrowser.open('http://127.0.0.1:8686')
+    
+    print("=" * 50)
     print(f"Serving portfolio on http://localhost:{port}")
+    print("Opening browser...")
+    Timer(0.5, open_browser).start()
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

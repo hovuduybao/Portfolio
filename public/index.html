@@ -167,8 +167,8 @@
                 <span class="material-symbols-outlined text-lg">location_on</span>France </span>
               <span class="px-5 py-2.5 rounded-2xl text-sm font-bold bg-gradient-to-r from-orange-500/10 to-orange-500/20 dark:from-orange-500/20 dark:to-orange-500/30 text-orange-700 dark:text-orange-300 shadow-sm backdrop-blur-sm border border-orange-200 dark:border-orange-800 flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">event_available</span>
-                <span class="lang-content lang-fr active">Dispo : 04/2026</span>
-                <span class="lang-content lang-en">Available: 04/2026</span>
+                <span class="lang-content lang-fr active">Dispo : <span id="availability-fr"></span></span>
+                <span class="lang-content lang-en">Available: <span id="availability-en"></span></span>
               </span>
             </div>
           </div>
@@ -441,8 +441,8 @@
               <div class="md:w-1/2 md:pr-20 text-right hidden md:block">
                 <span class="text-2xl font-black text-purple-500">2020-2021</span>
               </div>
-              <div class="absolute left-10 md:left-1/2 w-10 h-10 bg-white dark:bg-slate-900 border-4 border-purple-500 rounded-full z-10 transform -translate-x-1/2 flex items-center justify-center glow-node text-purple-500">
-                <span class="material-symbols-outlined text-sm">biotech</span>
+              <div class="absolute left-10 md:left-1/2 w-20 h-20 bg-white dark:bg-slate-900 border-4 border-purple-500 rounded-full z-10 transform -translate-x-1/2 flex items-center justify-center glow-node text-purple-500">
+                <span class="material-symbols-outlined text-4xl">biotech</span>
               </div>
               <div class="md:w-1/2 pl-24 md:pl-20">
                 <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border-2 border-purple-500 shadow-xl relative timeline-block hover:border-purple-400">
@@ -494,8 +494,8 @@
                   </ul>
                 </div>
               </div>
-              <div class="absolute left-10 md:left-1/2 w-10 h-10 bg-white dark:bg-slate-900 border-4 border-orange-500 rounded-full z-10 transform -translate-x-1/2 flex items-center justify-center glow-node text-orange-500">
-                <span class="material-symbols-outlined text-sm">settings_input_antenna</span>
+              <div class="absolute left-10 md:left-1/2 w-20 h-20 bg-white dark:bg-slate-900 border-4 border-orange-500 rounded-full z-10 transform -translate-x-1/2 flex items-center justify-center glow-node text-orange-500">
+                <span class="material-symbols-outlined text-4xl">settings_input_antenna</span>
               </div>
               <div class="md:w-1/2 md:pl-20 order-1 md:order-2 hidden md:block">
                 <span class="text-2xl font-black text-orange-500">2021 - 2022</span>
@@ -507,8 +507,8 @@
                   <span class="lang-content lang-en inline-element">Present</span>
                 </span>
               </div>
-              <div class="absolute left-10 md:left-1/2 w-10 h-10 bg-white dark:bg-slate-900 border-4 border-teal-500 rounded-full z-10 transform -translate-x-1/2 flex items-center justify-center glow-node text-teal-500">
-                <span class="material-symbols-outlined text-sm">rocket_launch</span>
+              <div class="absolute left-10 md:left-1/2 w-20 h-20 bg-white dark:bg-slate-900 border-4 border-teal-500 rounded-full z-10 transform -translate-x-1/2 flex items-center justify-center glow-node text-teal-500">
+                <span class="material-symbols-outlined text-4xl">rocket_launch</span>
               </div>
               <div class="md:w-1/2 pl-24 md:pl-20">
                 <div class="bg-white dark:bg-slate-900 p-8 rounded-3xl border-2 border-teal-500 shadow-xl relative timeline-block hover:border-teal-400">
@@ -1201,6 +1201,25 @@
       </div>
     </footer>
     <script>
+      // Calculate availability date (now + 2 months)
+      function updateAvailabilityDate() {
+        const now = new Date();
+        const availabilityDate = new Date(now.getFullYear(), now.getMonth() + 2, 1);
+        
+        // Format for French (MM/YYYY)
+        const frMonth = String(availabilityDate.getMonth() + 1).padStart(2, '0');
+        const frYear = availabilityDate.getFullYear();
+        document.getElementById('availability-fr').textContent = `${frMonth}/${frYear}`;
+        
+        // Format for English (MM/YYYY)
+        const enMonth = String(availabilityDate.getMonth() + 1).padStart(2, '0');
+        const enYear = availabilityDate.getFullYear();
+        document.getElementById('availability-en').textContent = `${enMonth}/${enYear}`;
+      }
+      
+      // Update availability date on page load
+      updateAvailabilityDate();
+      
       // Language Toggle
       const langToggle = document.getElementById('langToggle');
       const langIcon = document.getElementById('langIcon');
