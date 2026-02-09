@@ -1197,10 +1197,6 @@
             <span class="lang-content lang-fr active">© HO Vu Duy Bao • Portfolio 2026</span>
             <span class="lang-content lang-en">© HO Vu Duy Bao • Portfolio 2026</span>
           </p>
-          <!-- Website Carbon Badge -->
-          <div class="flex justify-center mt-8 mb-6">
-            <div id="wcb" class="carbonbadge"></div>
-          </div>
         </div>
       </div>
     </footer>
@@ -1273,24 +1269,6 @@
       // Observe all scroll-reveal elements
       document.querySelectorAll('[data-scroll]').forEach(el => {
         scrollRevealObserver.observe(el);
-      });
-
-      // Sync Website Carbon Badge theme with dark mode
-      function syncCarbonBadgeTheme() {
-        const wcb = document.getElementById('wcb');
-        if (!wcb) return;
-        if (document.documentElement.classList.contains('dark')) {
-          wcb.classList.add('wcb-d');
-        } else {
-          wcb.classList.remove('wcb-d');
-        }
-      }
-      // Run on load
-      syncCarbonBadgeTheme();
-      // Observe dark mode class changes on <html>
-      const darkModeObserver = new MutationObserver(syncCarbonBadgeTheme);
-      darkModeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
-    </script>
-    <script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+      });</script>
   </body>
 </html>
