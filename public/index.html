@@ -87,126 +87,7 @@
         .scroll-reveal-right.revealed {
             opacity: 1;
             transform: translateX(0);
-        }
-        /* Page Load Animation */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        .fade-in-up {
-            animation: fadeInUp 0.8s ease-out forwards;
-        }
-        .fade-in-up-delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .fade-in-up-delay-2 { animation-delay: 0.2s; opacity: 0; }
-        .fade-in-up-delay-3 { animation-delay: 0.3s; opacity: 0; }
-        .fade-in-up-delay-4 { animation-delay: 0.4s; opacity: 0; }
-        /* Floating Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #14b8a6, #6366f1);
-            color: white;
-            border: none;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(20, 184, 166, 0.4);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        .back-to-top:hover {
-            transform: translateY(-5px) scale(1.1);
-            box-shadow: 0 8px 25px rgba(20, 184, 166, 0.5);
-        }
-        /* Mobile Menu Styles */
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 80%;
-            max-width: 300px;
-            height: 100vh;
-            z-index: 100;
-            transition: right 0.3s ease;
-        }
-        .mobile-menu.open {
-            right: 0;
-        }
-        .mobile-menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(4px);
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 99;
-        }
-        .mobile-menu-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        /* Shimmer effect for key stats */
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
-        }
-        .stat-shimmer {
-            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
-            background-size: 200% 100%;
-            animation: shimmer 3s infinite;
-        }
-        /* Pulse animation for availability badge */
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
-            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
-        }
-        .pulse-availability {
-            animation: pulse-ring 2s ease-out infinite;
-        }
-        /* Typing cursor effect */
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        .typing-cursor::after {
-            content: '|';
-            animation: blink 1s infinite;
-            margin-left: 2px;
-        }
-        /* Smooth scroll indicator */
-        .scroll-indicator {
-            animation: bounce 2s infinite;
-        }
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-10px); }
-            60% { transform: translateY(-5px); }
-        }
-    </style>
+    }</style>
     <script>
       tailwind.config = {
         darkMode: "class",
@@ -259,18 +140,13 @@
             </a>
           </div>
           <div class="flex items-center space-x-4">
-            <button class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-all" onclick='document.documentElement.classList.toggle("dark")' aria-label="Toggle dark mode">
-              <span class="material-symbols-outlined text-xl block dark:hidden">dark_mode</span>
-              <span class="material-symbols-outlined text-xl hidden dark:block">light_mode</span>
+            <button class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-all" onclick='document.documentElement.classList.toggle("dark")'>
+              <span class="material-symbols-outlined text-xl block">dark_mode</span>
             </button>
-            <button class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-all" id="langToggle" aria-label="Toggle language">
+            <button class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-all" id="langToggle">
               <span id="langIcon" class="text-xl block">🇬🇧</span>
             </button>
-            <a class="hidden md:flex bg-gradient-to-r from-teal-500 to-teal-600 text-white px-7 py-2.5 rounded-full font-bold hover:shadow-xl hover:shadow-teal-500/20 transition-all transform hover:-translate-y-0.5" href="https://www.linkedin.com/in/vu-duy-bao-ho/">Contact</a>
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:scale-110 transition-all" id="mobileMenuBtn" aria-label="Open menu">
-              <span class="material-symbols-outlined text-xl block">menu</span>
-            </button>
+            <a class="bg-gradient-to-r from-teal-500 to-teal-600 text-white px-7 py-2.5 rounded-full font-bold hover:shadow-xl hover:shadow-teal-500/20 transition-all transform hover:-translate-y-0.5" href="https://www.linkedin.com/in/vu-duy-bao-ho/">Contact</a>
           </div>
         </div>
       </div>
@@ -286,10 +162,10 @@
                 <img alt="HO Vu Duy Bao Profile" class="w-full h-full object-cover scale-110" src="profile-photo.png">
               </div>
             </div>
-            <div class="flex flex-wrap justify-center gap-3 mt-6 fade-in-up fade-in-up-delay-2">
+            <div class="flex flex-wrap justify-center gap-3 mt-6">
               <span class="px-5 py-2.5 rounded-2xl text-sm font-bold bg-gradient-to-r from-teal-500/10 to-teal-500/20 dark:from-teal-500/20 dark:to-teal-500/30 text-teal-700 dark:text-teal-300 shadow-sm backdrop-blur-sm border border-teal-200 dark:border-teal-800 flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">location_on</span>France </span>
-              <span class="px-5 py-2.5 rounded-2xl text-sm font-bold bg-gradient-to-r from-orange-500/10 to-orange-500/20 dark:from-orange-500/20 dark:to-orange-500/30 text-orange-700 dark:text-orange-300 shadow-sm backdrop-blur-sm border border-orange-200 dark:border-orange-800 flex items-center gap-2 pulse-availability">
+              <span class="px-5 py-2.5 rounded-2xl text-sm font-bold bg-gradient-to-r from-orange-500/10 to-orange-500/20 dark:from-orange-500/20 dark:to-orange-500/30 text-orange-700 dark:text-orange-300 shadow-sm backdrop-blur-sm border border-orange-200 dark:border-orange-800 flex items-center gap-2">
                 <span class="material-symbols-outlined text-lg">event_available</span>
                 <span class="lang-content lang-fr active">Dispo : <span id="availability-fr"></span></span>
                 <span class="lang-content lang-en">Available: <span id="availability-en"></span></span>
@@ -309,7 +185,7 @@
                   <span class="lang-content lang-en">4+ years</span>
                 </span>
               </div>
-              <h1 class="text-5xl sm:text-6xl md:text-8xl font-black mb-4 tracking-tighter leading-none fade-in-up fade-in-up-delay-1">
+              <h1 class="text-6xl md:text-8xl font-black mb-4 tracking-tighter leading-none">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-indigo-500 to-purple-600 animate-gradient">HO Vu Duy Bao</span>
               </h1>
               <div class="flex flex-wrap gap-2 mb-6 justify-center lg:justify-start">
@@ -324,22 +200,22 @@
                 <span class="lang-content lang-fr active">Spécialisé en <strong class="text-blue-600 dark:text-blue-400">LoRaWAN</strong>, <strong class="text-orange-600 dark:text-orange-400">Smart Metering </strong>et solutions <strong class="text-teal-600 dark:text-teal-400">IoT industrielles</strong>. Je connecte l'embarqué au cloud pour des solutions scalables – du PoC au déploiement terrain. </span>
                 <span class="lang-content lang-en">Specialized in <strong class="text-blue-600 dark:text-blue-400">LoRaWAN</strong>, <strong class="text-orange-600 dark:text-orange-400">Smart Metering</strong>and <strong class="text-teal-600 dark:text-teal-400">industrial IoT </strong>solutions. I connect embedded systems to cloud for scalable solutions – from PoC to field deployment. </span>
               </p>
-              <div class="grid grid-cols-3 gap-4 mb-6 fade-in-up fade-in-up-delay-3">
-                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 rounded-2xl border-2 border-teal-200 dark:border-teal-800 text-center shadow-lg hover:scale-105 transition-transform">
+              <div class="grid grid-cols-3 gap-4 mb-6">
+                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 rounded-2xl border-2 border-teal-200 dark:border-teal-800 text-center shadow-lg">
                   <span class="text-3xl md:text-4xl font-black text-teal-600 dark:text-teal-400">+200K</span>
                   <p class="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mt-1">
                     <span class="lang-content lang-fr active">Capteurs déployés</span>
                     <span class="lang-content lang-en">Deployed sensors</span>
                   </p>
                 </div>
-                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 rounded-2xl border-2 border-orange-200 dark:border-orange-800 text-center shadow-lg hover:scale-105 transition-transform">
+                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 rounded-2xl border-2 border-orange-200 dark:border-orange-800 text-center shadow-lg">
                   <span class="text-3xl md:text-4xl font-black text-orange-600 dark:text-orange-400">+25%</span>
                   <p class="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mt-1">
                     <span class="lang-content lang-fr active">Chaîne dev/prod</span>
                     <span class="lang-content lang-en">Dev/prod pipeline</span>
                   </p>
                 </div>
-                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 rounded-2xl border-2 border-purple-200 dark:border-purple-800 text-center shadow-lg hover:scale-105 transition-transform">
+                <div class="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm p-4 rounded-2xl border-2 border-purple-200 dark:border-purple-800 text-center shadow-lg">
                   <span class="text-3xl md:text-4xl font-black text-purple-600 dark:text-purple-400">3</span>
                   <p class="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide mt-1">
                     <span class="lang-content lang-fr active">Appels d'offres gagnés</span>
@@ -361,12 +237,6 @@
             </div>
           </div>
         </div>
-      </div>
-      <!-- Scroll Indicator -->
-      <div class="flex justify-center mt-8">
-        <a href="#projets" class="scroll-indicator text-slate-400 dark:text-slate-600 hover:text-teal-500 transition-colors">
-          <span class="material-symbols-outlined text-3xl">expand_more</span>
-        </a>
       </div>
     </header>
     <section class="py-24" id="projets">
@@ -1400,109 +1270,6 @@
       document.querySelectorAll('[data-scroll]').forEach(el => {
         scrollRevealObserver.observe(el);
       });
-
-      // Mobile Menu Functionality
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const mobileMenu = document.getElementById('mobileMenu');
-      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
-      const mobileMenuClose = document.getElementById('mobileMenuClose');
-      const mobileMenuLinks = document.querySelectorAll('.mobile-menu-link');
-
-      function openMobileMenu() {
-        mobileMenu.classList.add('open');
-        mobileMenuOverlay.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function closeMobileMenu() {
-        mobileMenu.classList.remove('open');
-        mobileMenuOverlay.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-
-      mobileMenuBtn?.addEventListener('click', openMobileMenu);
-      mobileMenuClose?.addEventListener('click', closeMobileMenu);
-      mobileMenuOverlay?.addEventListener('click', closeMobileMenu);
-      mobileMenuLinks.forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-      });
-
-      // Back to Top Button
-      const backToTop = document.getElementById('backToTop');
-      
-      window.addEventListener('scroll', () => {
-        if (window.scrollY > 500) {
-          backToTop?.classList.add('visible');
-        } else {
-          backToTop?.classList.remove('visible');
-        }
-      });
-
-      backToTop?.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      // Smooth scroll for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
     </script>
-
-    <!-- Mobile Menu Slide-out Panel -->
-    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
-    <nav class="mobile-menu bg-white dark:bg-slate-900 shadow-2xl" id="mobileMenu">
-      <div class="p-6 flex flex-col h-full">
-        <div class="flex justify-between items-center mb-8">
-          <span class="text-xl font-black bg-gradient-to-r from-teal-500 to-indigo-600 bg-clip-text text-transparent">_Bao_</span>
-          <button class="p-2 rounded-xl bg-slate-100 dark:bg-slate-800" id="mobileMenuClose" aria-label="Close menu">
-            <span class="material-symbols-outlined">close</span>
-          </button>
-        </div>
-        <div class="flex flex-col space-y-4">
-          <a class="mobile-menu-link p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm uppercase tracking-wider flex items-center gap-3" href="#projets">
-            <span class="material-symbols-outlined text-teal-500">folder</span>
-            <span class="lang-content lang-fr active">Projets</span>
-            <span class="lang-content lang-en">Projects</span>
-          </a>
-          <a class="mobile-menu-link p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm uppercase tracking-wider flex items-center gap-3" href="#experience">
-            <span class="material-symbols-outlined text-orange-500">work</span>
-            <span class="lang-content lang-fr active">Expérience</span>
-            <span class="lang-content lang-en">Experience</span>
-          </a>
-          <a class="mobile-menu-link p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm uppercase tracking-wider flex items-center gap-3" href="#methodologie">
-            <span class="material-symbols-outlined text-purple-500">route</span>
-            <span class="lang-content lang-fr active">Méthodes</span>
-            <span class="lang-content lang-en">Methods</span>
-          </a>
-          <a class="mobile-menu-link p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm uppercase tracking-wider flex items-center gap-3" href="#formation">
-            <span class="material-symbols-outlined text-green-500">school</span>
-            <span class="lang-content lang-fr active">Formation</span>
-            <span class="lang-content lang-en">Education</span>
-          </a>
-          <a class="mobile-menu-link p-3 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 font-semibold text-sm uppercase tracking-wider flex items-center gap-3" href="#achievements">
-            <span class="material-symbols-outlined text-indigo-500">stars</span>
-            <span class="lang-content lang-fr active">Références</span>
-            <span class="lang-content lang-en">References</span>
-          </a>
-        </div>
-        <div class="mt-auto pt-8">
-          <a class="w-full bg-gradient-to-r from-teal-500 to-teal-600 text-white px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 shadow-lg" href="https://www.linkedin.com/in/vu-duy-bao-ho/">
-            <span class="material-symbols-outlined">person</span>
-            Contact LinkedIn
-          </a>
-        </div>
-      </div>
-    </nav>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-      <span class="material-symbols-outlined">arrow_upward</span>
-    </button>
   </body>
 </html>
